@@ -1,0 +1,4 @@
+Django==1.10.5
+nameparser==0.5.1
+Pillow==4.0.0
+requests==2.12.4
