@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
     Base Django settings for mtlmurals project
     ==========================================
