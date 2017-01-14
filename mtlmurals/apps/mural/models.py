@@ -48,7 +48,6 @@ class Mural(models.Model):
 
     # A mural can be associated with many artists. It can (potentially) be realized by an
     # organization which was financed to create murals. Fundings can come from a specific program.
-    # A mural can also be financed by a specific program.
     artists = models.ManyToManyField(Artist, verbose_name=_('Artists'))
     organization = models.ForeignKey(
         Organization, blank=True, null=True, verbose_name=_('Organization'))
