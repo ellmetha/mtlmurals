@@ -24,3 +24,4 @@ class ProgramAdmin(admin.ModelAdmin):
 @admin.register(Mural)
 class MuralAdmin(admin.ModelAdmin):
     list_display = ['address', 'year', 'latitude', 'longitude', ]
+    raw_id_fields = ['artists', 'organization', 'program', ]
