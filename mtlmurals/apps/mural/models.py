@@ -32,7 +32,7 @@ class Program(models.Model):
 
     class Meta:
         verbose_name = _('Program')
-        verbose_name_plural = _('Organizations')
+        verbose_name_plural = _('Programs')
 
     def __str__(self):
         return self.name
