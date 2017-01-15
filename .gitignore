@@ -102,3 +102,8 @@ public/static/*
 !public/static/.gitkeep
 public/*.txt
 !public/robots.txt
+
+# Assets and Node stuff
+node_modules/
+/mtlmurals/static/build_dev/*
+!mtlmurals/static/build_dev/.gitkeep

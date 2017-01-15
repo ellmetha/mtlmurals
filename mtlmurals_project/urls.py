@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
-from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.i18n import javascript_catalog
 
@@ -12,15 +11,13 @@ js_info_dict = {
 
 urlpatterns = [
     url(r'^jsi18n/$', javascript_catalog, js_info_dict, name='javascript-catalog'),
-]
 
-urlpatterns += i18n_patterns(
     # Admin
     url(r'^' + settings.ADMIN_URL, include(admin.site.urls)),
 
     # Apps
     url(r'^', include('mtlmurals.public.urls')),
-)
+]
 
 if settings.DEBUG:
     # Add the Debug Toolbar’s URLs to the project’s URLconf

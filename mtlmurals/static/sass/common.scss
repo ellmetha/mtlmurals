@@ -1,0 +1,20 @@
+//
+// Common elements
+// --------------------------------------------------
+
+
+a{
+  @include transition(0.25s, ease-in-out);
+}
+
+
+/*
+ * Header
+ */
+
+nav#id_header_nav{
+  a.nav-item.brand{
+    font-family: $dosisbold;
+    font-size: $size-medium;
+  }
+}
