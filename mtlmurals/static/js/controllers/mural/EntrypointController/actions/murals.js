@@ -3,7 +3,7 @@ import axios from 'axios';
 import ActionTypes from '../constants/ActionTypes';
 
 
-export function fetchMurals(parentForumId) {
+export function fetchMurals() {
   return async (dispatch, getState) => {
     try {
       let url = window.Urls['api:v1:mural:list']();
