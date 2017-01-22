@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Third-party apps
+    'rest_framework',
 
     # Django's admin app
     'django.contrib.admin',
@@ -228,3 +229,13 @@ WSGI_APPLICATION = 'mtlmurals_project.wsgi.application'
 
 # URL of the admin page
 ADMIN_URL = get_envsetting('ADMIN_URL')
+
+
+# REST FRAMEWORK
+# ------------------------------------------------------------------------------
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend', ),
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'PAGE_SIZE': 20,
+}
