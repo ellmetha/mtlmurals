@@ -9,6 +9,6 @@ class MuralSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mural
         fields = [
-            'image', 'year', 'address', 'address_2', 'zip_code', 'city', 'country', 'latitude',
-            'longitude',
+            'id', 'image', 'year', 'address', 'address_2', 'zip_code', 'city', 'country',
+            'latitude', 'longitude',
         ]

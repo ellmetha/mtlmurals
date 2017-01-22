@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+// 1. Variables
+@import "variables";
+
 // 1. Vendors
 @import "~bulma";
 $fa-font-path: '~font-awesome/fonts/'; @import "~font-awesome/scss/font-awesome";
@@ -8,8 +11,7 @@ $ionicons-font-path: '~ionicons/dist/fonts'; @import "~ionicons/dist/scss/ionico
 // 2. Mixins
 @import "mixins";
 
-// 3. Common elements and variables
-@import "variables";
+// 3. Common elements
 @import "common";
 
 // 3. Pages

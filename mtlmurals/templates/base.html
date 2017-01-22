@@ -27,22 +27,32 @@
       data-controller="{% block data_controller %}{% endblock data_controller %}"
       data-action="{% block data_action %}{% endblock data_action %}"
       >
-    {% block header %}
-    <nav id="id_header_nav" class="nav has-shadow">
-      <div class="container is-fluid">
-        <div class="nav-left">
-          <a href="/" class="nav-item brand">mtl-murals</a>
+    <div id="id_wrap">
+      {% block header %}
+      <nav id="id_header_nav" class="nav has-shadow">
+        <div class="container is-fluid">
+          <div class="nav-left">
+            <a href="/" class="nav-item brand">MTL murals</a>
+          </div>
+          <div class="nav-right">
+            <a href="https://github.com/ellmetha/mtlmurals" class="nav-item">
+              <span class="icon">
+                <i class="fa fa-github"></i>
+              </span>
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-    {% endblock header %}
+      </nav>
+      {% endblock header %}
 
-    {% block content %}
-    {% endblock content %}
+      {% block content %}
+      {% endblock content %}
 
-    {% block footer %}{% endblock footer %}
+      {% block footer %}{% endblock footer %}
+    </div>
 
     <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+    <script type="text/javascript" src="{% url 'js_reverse' %}"></script>
 
     {% block js %}
     <script type="text/javascript" src="{{ WEBPACK_DEV_SERVER_URL|default:'' }}{% static 'js/App.js' %}"></script>

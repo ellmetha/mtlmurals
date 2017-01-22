@@ -3,6 +3,17 @@
 // --------------------------------------------------
 
 
+//== Colors
+//
+
+$fadeBlack:         #323330;
+$fadeYellow:        #f5da55;
+
+
+//== Bulma variables
+//
+
+
 //== Typography
 //
 
@@ -47,8 +58,15 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'tradewindsregular';
+    src: url('../fonts/tradewinds/TradeWinds-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 $opensansregular:           "opensansregular", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 $opensanssemibold:          "opensanssemibold", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 $opensansbold:              "opensansbold", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 $dosisbold:                 "dosisbold", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+$tradeWindsRegular:         "tradewindsregular", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;

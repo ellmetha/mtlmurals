@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Third-party apps
+    'django_js_reverse',
     'rest_framework',
 
     # Django's admin app
@@ -229,6 +230,13 @@ WSGI_APPLICATION = 'mtlmurals_project.wsgi.application'
 
 # URL of the admin page
 ADMIN_URL = get_envsetting('ADMIN_URL')
+
+
+# JS REVERSE
+# ------------------------------------------------------------------------------
+
+JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['api', ]
+JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
 
 
 # REST FRAMEWORK

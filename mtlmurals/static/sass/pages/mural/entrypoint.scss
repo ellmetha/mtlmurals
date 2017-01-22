@@ -1,3 +1,37 @@
 body#id_mural_entrypoint{
+  height: 100%;
+  overflow-y: hidden;
 
+  #id_wrap{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #id_mural_search_engine{
+    height: 100%;
+
+    .search-wrapper{
+      height: 100%;
+
+      #id_page_search{
+        float: left;
+        width: 60%;
+        height: 100%;
+        background: $fadeBlack;
+
+        #id_page_search_results{
+          height: calc(100% - 20px);
+          overflow-x: scroll;
+        }
+      }
+
+      #id_map_search{
+        position: relative;
+        float: left;
+        width: 40%;
+        height: 100%;
+      }
+    }
+  }
 }

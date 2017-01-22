@@ -19,6 +19,7 @@ const static_dir = root_dir + 'mtlmurals/static/';
 const templates_dirs = root_dir + 'mtlmurals/templates/';
 const PROD_ENV = gutil.env.production;
 const WEBPACK_DEV_SERVER_PORT = process.env.WEBPACK_DEV_SERVER_PORT ? process.env.WEBPACK_DEV_SERVER_PORT : 8080
+env.set({NODE_ENV: PROD_ENV ? 'production' : 'debug'});
 
 /* Directories */
 var build_dir = PROD_ENV ? static_dir + 'build' : static_dir + 'build_dev';

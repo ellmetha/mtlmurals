@@ -3,8 +3,19 @@
 // --------------------------------------------------
 
 
+html{
+  height: 100%;
+}
+
 a{
   @include transition(0.25s, ease-in-out);
+}
+
+#id_wrap{
+  clear: both;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -13,8 +24,10 @@ a{
  */
 
 nav#id_header_nav{
+  background: $fadeYellow;
+
   a.nav-item.brand{
-    font-family: $dosisbold;
-    font-size: $size-medium;
+    font-family: $tradeWindsRegular;
+    font-size: $size-large;
   }
 }
