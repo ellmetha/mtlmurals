@@ -55,6 +55,7 @@ INSTALLED_APPS = (
 
     # Third-party apps
     'django_js_reverse',
+    'easy_thumbnails',
     'rest_framework',
 
     # Django's admin app
@@ -246,4 +247,14 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend', ),
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'PAGE_SIZE': 20,
+}
+
+
+# EASY THUMBNAILS
+# ------------------------------------------------------------------------------
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'mural_search_engine_list_item': {'size': (550, 360), 'crop': True, 'upscale': True, },
+    },
 }

@@ -21,8 +21,38 @@ body#id_mural_entrypoint{
         background: $fadeBlack;
 
         #id_page_search_results{
-          height: calc(100% - 20px);
+          height: calc(100% - 2.8rem);
           overflow-x: scroll;
+
+          .results-wrapper{
+            margin: 0.75rem;
+
+            .column{
+              a{
+                display: block;
+                border: 1px solid $fadeYellow;
+
+                .item-image{
+                  display: block;
+                }
+
+                .item-content{
+                  padding: 0.75rem;
+                  display: block;
+                  background: $white-ter;
+
+                  .item-title{
+                    display: block;
+                    min-height: 3rem;
+                  }
+
+                  .item-year{
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
         }
       }
 
