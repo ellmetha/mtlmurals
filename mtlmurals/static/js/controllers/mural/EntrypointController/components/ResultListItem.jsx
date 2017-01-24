@@ -14,7 +14,7 @@ class ResultListItem extends React.Component {
           <span className="item-image"><img src={mural.image_url} alt=""/></span>
           <span className="item-content">
             <span className="item-title title is-4">{mural.title}</span>
-            <span className="item-year has-text-right subtitle">{mural.year}</span>
+            <span className="item-year subtitle">{mural.year}</span>
           </span>
         </a>
       </div>

@@ -24,10 +24,19 @@ a{
  */
 
 nav#id_header_nav{
-  background: $fadeYellow;
+  background: $cgBlue;
 
-  a.nav-item.brand{
-    font-family: $tradeWindsRegular;
-    font-size: $size-large;
+
+  a.nav-item{
+    color: $grey-lighter;
+
+    &:hover, &:focus{
+      color: $white-ter;
+    }
+
+    &.brand{
+      font-family: $tradeWindsRegular;
+      font-size: $size-large;
+    }
   }
 }
