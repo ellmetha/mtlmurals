@@ -7,11 +7,11 @@ export function fetchMurals() {
   return async (dispatch, getState) => {
     try {
       let url = window.Urls['api:v1:mural:list']();
-      const murals = (await axios.get(url)).data.results;
-      dispatch({ type: ActionTypes.FETCH_MURALS_SUCCESS, murals });
+      const murals = (await axios.get(url)).data;
+      dispatch({ type: ActionTypes.MURALS_FETCH_SUCCESS, murals });
     } catch (err) {
       let error = Error('Unknown error occured :-(. Please, try again later.');
-      dispatch({ type: ActionTypes.FETCH_MURALS_FAILURE, error });
+      dispatch({ type: ActionTypes.MURALS_FETCH_FAILURE, error });
     }
   }
 }

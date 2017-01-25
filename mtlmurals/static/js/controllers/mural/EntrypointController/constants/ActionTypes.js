@@ -2,6 +2,7 @@ import keyMirror from 'key-mirror';
 
 
 export default keyMirror({
-  FETCH_MURALS_SUCCESS: null,
-  FETCH_MURALS_FAILURE: null
+  MURALS_FETCH_REQUEST: null,
+  MURALS_FETCH_SUCCESS: null,
+  MURALS_FETCH_FAILURE: null
 });

@@ -9,6 +9,10 @@ class MuralSearchEngineContainer extends React.Component {
   static propTypes = {
     params: PropTypes.object,
     murals: PropTypes.array,
+    count: PropTypes.number,
+    currentPage: PropTypes.number,
+    pagesCount: PropTypes.number,
+    fetching: PropTypes.bool,
     fetchMurals: PropTypes.func.isRequired
   };
 
@@ -17,9 +21,9 @@ class MuralSearchEngineContainer extends React.Component {
   }
 
   render() {
-    let { murals } = this.props;
+    let { murals, count, currentPage, pagesCount, fetching } = this.props;
     return (
-      <MuralSearchEngine key="murals" murals={murals} />
+      <MuralSearchEngine key="murals" murals={murals} count={count} currentPage={currentPage} pagesCount={pagesCount} fetching={fetching} />
     );
   }
 }
@@ -27,6 +31,10 @@ class MuralSearchEngineContainer extends React.Component {
 export default connect(
   state => ({
     murals: state.murals.list.map(id => state.murals.items[id]),
+    count: state.murals.count,
+    currentPage: state.murals.currentPage,
+    pagesCount: state.murals.pagesCount,
+    fetching: state.murals.fetching
   }),
   {fetchMurals, }
 )(MuralSearchEngineContainer);
