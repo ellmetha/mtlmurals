@@ -48,7 +48,7 @@ class ResultListPagination extends React.Component {
           <ul className="pagination-list">
             {paginationItems.map(pageNumber => {
               return (
-              <li>
+              <li key={pageNumber}>
                 {pageNumber == '...' &&
                   <span className="pagination-ellipsis">&hellip;</span>
                 }
