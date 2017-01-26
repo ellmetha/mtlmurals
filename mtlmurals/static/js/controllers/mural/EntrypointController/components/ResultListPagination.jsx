@@ -38,10 +38,12 @@ class ResultListPagination extends React.Component {
   render() {
     let { currentPage, pagesCount } = this.props;
     let paginationItems = this.getPaginationItems();
+    let previousPage = (currentPage > 1) ? currentPage - 1 : undefined;
+    let nextPage = (currentPage < pagesCount) ? currentPage + 1 : undefined;
     return (
       <nav className="pagination is-centered">
-        <a className="pagination-previous">Previous</a>
-        <a className="pagination-next">Next page</a>
+        <a {...previousPage ? {className: 'pagination-previous'} : {className: 'pagination-previous is-disabled'}}>Previous</a>
+        <a {...nextPage ? {className: 'pagination-next'} : {className: 'pagination-next is-disabled'}}>Next page</a>
         {paginationItems.length > 0 &&
           <ul className="pagination-list">
             {paginationItems.map(pageNumber => {
