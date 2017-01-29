@@ -5,7 +5,8 @@ class ResultListPagination extends React.Component {
   static propTypes = {
     count: PropTypes.number,
     currentPage: PropTypes.number,
-    pagesCount: PropTypes.number
+    pagesCount: PropTypes.number,
+    onPaginate: PropTypes.func.isRequired
   };
 
   /*
@@ -35,6 +36,13 @@ class ResultListPagination extends React.Component {
     return items;
   }
 
+  paginate(ev) {
+    ev.preventDefault();
+
+    let pageNumber = ev.target.attributes.getNamedItem('data-page-number').value;
+    this.props.onPaginate(pageNumber=pageNumber);
+  }
+
   render() {
     let { currentPage, pagesCount } = this.props;
     let paginationItems = this.getPaginationItems();
@@ -42,8 +50,8 @@ class ResultListPagination extends React.Component {
     let nextPage = (currentPage < pagesCount) ? currentPage + 1 : undefined;
     return (
       <nav className="pagination is-centered">
-        <a {...previousPage ? {className: 'pagination-previous'} : {className: 'pagination-previous is-disabled'}}>Previous</a>
-        <a {...nextPage ? {className: 'pagination-next'} : {className: 'pagination-next is-disabled'}}>Next page</a>
+        <a href="#" {...previousPage ? {className: 'pagination-previous', 'data-page-number': previousPage, onClick: this.paginate.bind(this)} : {className: 'pagination-previous is-disabled'}}>Previous</a>
+        <a href="#" {...nextPage ? {className: 'pagination-next', 'data-page-number': nextPage, onClick: this.paginate.bind(this)} : {className: 'pagination-next is-disabled'}}>Next page</a>
         {paginationItems.length > 0 &&
           <ul className="pagination-list">
             {paginationItems.map(pageNumber => {
@@ -53,7 +61,10 @@ class ResultListPagination extends React.Component {
                   <span className="pagination-ellipsis">&hellip;</span>
                 }
                 {pageNumber != '...' &&
-                  <a {...pageNumber == currentPage ? {className: 'pagination-link is-current'} : {className: 'pagination-link'}}>{pageNumber}</a>
+                  <a href="#" onClick={this.paginate.bind(this)} data-page-number={pageNumber}
+                   {...pageNumber == currentPage ? {className: 'pagination-link is-current'} : {className: 'pagination-link'}}>
+                    {pageNumber}
+                  </a>
                 }
               </li>
               );

@@ -10,11 +10,12 @@ class MuralSearchEngine extends React.Component {
     count: PropTypes.number,
     currentPage: PropTypes.number,
     pagesCount: PropTypes.number,
-    fetching: PropTypes.bool
+    fetching: PropTypes.bool,
+    onSubmit: PropTypes.func.isRequired
   };
 
   render() {
-    let { murals, count, currentPage, pagesCount } = this.props;
+    let { murals, count, currentPage, pagesCount, onSubmit } = this.props;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
@@ -26,7 +27,9 @@ class MuralSearchEngine extends React.Component {
                 {murals.map(mural => { return (<ResultListItem key={mural.id} mural={mural} />); })}
               </div>
             }
-            <div id="id_page_search_pagination"><ResultListPagination key="pagination" count={count} currentPage={currentPage} pagesCount={pagesCount} /></div>
+            <div id="id_page_search_pagination">
+              <ResultListPagination key="pagination" count={count} currentPage={currentPage} pagesCount={pagesCount} onPaginate={onSubmit} />
+            </div>
           </div>
         </div>
         <div id="id_map_search">

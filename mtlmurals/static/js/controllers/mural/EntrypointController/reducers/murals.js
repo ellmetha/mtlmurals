@@ -14,7 +14,8 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.MURALS_FETCH_REQUEST:
-      return { ...state, fetching: true };
+      let pageNumber = action.pageNumber;
+      return { ...state, pageNumber, fetching: true };
 
     case ActionTypes.MURALS_FETCH_SUCCESS:
       const list = action.murals.results.map(item => item.id);
