@@ -9,8 +9,9 @@ class ResultListPagination extends React.Component {
     onPaginate: PropTypes.func.isRequired
   };
 
-  /*
+  /**
    * Returns an array of page numbers (or ellipsis items) that should be rendered.
+   * @return {Array} Array of items that should be rendered in the pagination list.
    */
   getPaginationItems() {
     let { currentPage, pagesCount } = this.props;

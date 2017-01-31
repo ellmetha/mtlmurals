@@ -3,6 +3,8 @@ import React, { PropTypes } from 'react';
 import ResultListItem from './ResultListItem';
 import ResultListPagination from './ResultListPagination';
 
+import smoothScrollTo from '../../../../core/animations/smoothScrollTo';
+
 
 class MuralSearchEngine extends React.Component {
   static propTypes = {
@@ -11,11 +13,17 @@ class MuralSearchEngine extends React.Component {
     currentPage: PropTypes.number,
     pagesCount: PropTypes.number,
     fetching: PropTypes.bool,
-    onSubmit: PropTypes.func.isRequired
+    onSubmitFetchMurals: PropTypes.func.isRequired
   };
 
+  async onSubmit(...args) {
+    let { onSubmitFetchMurals } = this.props;
+    await smoothScrollTo(document.getElementById('id_page_search_results'));
+    onSubmitFetchMurals(...args);
+  }
+
   render() {
-    let { murals, count, currentPage, pagesCount, onSubmit } = this.props;
+    let { murals, count, currentPage, pagesCount } = this.props;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
@@ -28,7 +36,7 @@ class MuralSearchEngine extends React.Component {
               </div>
             }
             <div id="id_page_search_pagination">
-              <ResultListPagination key="pagination" count={count} currentPage={currentPage} pagesCount={pagesCount} onPaginate={onSubmit} />
+              <ResultListPagination key="pagination" count={count} currentPage={currentPage} pagesCount={pagesCount} onPaginate={this.onSubmit.bind(this)} />
             </div>
           </div>
         </div>

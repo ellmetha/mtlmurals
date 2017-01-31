@@ -3,10 +3,10 @@ class DOMRouter {
     this.controllers = (controllers === undefined) ? {} : controllers;
   }
 
-  /*
+  /**
    * Executes the given action associated with the considered controller.
-   * @param {string} controller - The codename of the controller.
-   * @param {string} action - The name of the action to execute.
+   * @param {String} controller - The codename of the controller.
+   * @param {String} action - The name of the action to execute.
    */
   execAction(controller, action) {
     if (controller !== '' && this.controllers[controller] && typeof this.controllers[controller][action] == 'function') {
@@ -14,7 +14,7 @@ class DOMRouter {
     }
   }
 
-  /*
+  /**
    * Initializes the router object.
    */
   init() {

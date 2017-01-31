@@ -25,7 +25,7 @@ class MuralSearchEngineContainer extends React.Component {
     return (
       <MuralSearchEngine key="murals"
          murals={murals} count={count} currentPage={currentPage} pagesCount={pagesCount} fetching={fetching}
-         onSubmit={fetchMurals}
+         onSubmitFetchMurals={fetchMurals}
          />
     );
   }
