@@ -35,8 +35,10 @@ nav#id_header_nav{
     }
 
     &.brand{
-      font-family: $tradeWindsRegular;
-      font-size: $size-large;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-family: $yesteryearRegular;
+      font-size: $size-3;
     }
   }
 }
