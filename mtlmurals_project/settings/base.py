@@ -217,7 +217,7 @@ MEDIA_ROOT = str(PROJECT_PATH / 'public' / 'media')
 MEDIA_URL = '/media/'
 
 
-# URL Configuration
+# URL CONFIGURATION
 # ------------------------------------------------------------------------------
 
 ROOT_URLCONF = 'mtlmurals_project.urls'
@@ -233,14 +233,14 @@ WSGI_APPLICATION = 'mtlmurals_project.wsgi.application'
 ADMIN_URL = get_envsetting('ADMIN_URL')
 
 
-# JS REVERSE
+# JS REVERSE CONFIGURATION
 # ------------------------------------------------------------------------------
 
 JS_REVERSE_INCLUDE_ONLY_NAMESPACES = ['api', ]
 JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
 
 
-# REST FRAMEWORK
+# REST FRAMEWORK CONFIGURATION
 # ------------------------------------------------------------------------------
 
 REST_FRAMEWORK = {
@@ -251,7 +251,7 @@ REST_FRAMEWORK = {
 }
 
 
-# EASY THUMBNAILS
+# EASY THUMBNAILS CONFIGURATION
 # ------------------------------------------------------------------------------
 
 THUMBNAIL_ALIASES = {
