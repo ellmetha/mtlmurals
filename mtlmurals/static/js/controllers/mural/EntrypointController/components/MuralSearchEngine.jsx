@@ -23,12 +23,13 @@ class MuralSearchEngine extends React.Component {
   }
 
   render() {
-    let { murals, count, currentPage, pagesCount } = this.props;
+    let { murals, count, currentPage, pagesCount, fetching } = this.props;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
           <div id="id_page_search_form"></div>
-          <div id="id_page_search_results">
+          <div id="id_page_search_results" {...fetching ? {className: 'fetching'} : {}}>
+            <div id="id_page_search_results_fetching"></div>
             {murals.length > 0 &&
               // A list of murals can be displayed
               <div className="columns is-multiline results-wrapper">

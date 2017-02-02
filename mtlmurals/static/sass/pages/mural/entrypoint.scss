@@ -24,6 +24,25 @@ body#id_mural_entrypoint{
           height: calc(100% - 2.8rem);
           overflow-x: scroll;
 
+          &.fetching{
+            #id_page_search_results_fetching{
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+
+          #id_page_search_results_fetching{
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            @include transition(0.25s, ease-in-out);
+          }
+
           .results-wrapper{
             margin: 0.75rem;
 
