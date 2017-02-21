@@ -12,23 +12,32 @@ class MuralSearchEngine extends React.Component {
     count: PropTypes.number,
     currentPage: PropTypes.number,
     pagesCount: PropTypes.number,
-    fetching: PropTypes.bool,
     onSubmitFetchMurals: PropTypes.func.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {fetching: false};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({fetching: false, });
+  }
+
   async onSubmit(...args) {
-    let { onSubmitFetchMurals } = this.props;
+    let { onSubmitFetchMurals, onScrollToTopRequestFetchMurals } = this.props;
+    this.setState({fetching: true, });
     await smoothScrollTo(document.getElementById('id_page_search_results'));
     onSubmitFetchMurals(...args);
   }
 
   render() {
-    let { murals, count, currentPage, pagesCount, fetching } = this.props;
+    let { murals, count, currentPage, pagesCount, } = this.props;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
           <div id="id_page_search_form"></div>
-          <div id="id_page_search_results" {...fetching ? {className: 'fetching'} : {}}>
+          <div id="id_page_search_results" {...this.state.fetching ? {className: 'fetching'} : {}}>
             <div id="id_page_search_results_fetching"></div>
             {murals.length > 0 &&
               // A list of murals can be displayed

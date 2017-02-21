@@ -36,8 +36,7 @@ export default connect(
     murals: state.murals.list.map(id => state.murals.items[id]),
     count: state.murals.count,
     currentPage: state.murals.currentPage,
-    pagesCount: state.murals.pagesCount,
-    fetching: state.murals.fetching
+    pagesCount: state.murals.pagesCount
   }),
   {fetchMurals, }
 )(MuralSearchEngineContainer);
