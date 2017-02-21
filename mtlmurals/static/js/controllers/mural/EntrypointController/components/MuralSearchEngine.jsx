@@ -25,7 +25,7 @@ class MuralSearchEngine extends React.Component {
   }
 
   async onSubmit(...args) {
-    let { onSubmitFetchMurals, onScrollToTopRequestFetchMurals } = this.props;
+    let { onSubmitFetchMurals } = this.props;
     this.setState({fetching: true, });
     await smoothScrollTo(document.getElementById('id_page_search_results'));
     onSubmitFetchMurals(...args);
