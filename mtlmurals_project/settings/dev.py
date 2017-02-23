@@ -72,7 +72,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # ------------------------------------------------------------------------------
 
 WEBPACK_DEV_SERVER_PORT = get_envsetting('WEBPACK_DEV_SERVER_PORT', 8080)  # noqa: F405
-WEBPACK_DEV_SERVER_URL = 'http://localhost:{port}'.format(port=WEBPACK_DEV_SERVER_PORT)
+WEBPACK_DEV_SERVER_URL = f'http://localhost:{WEBPACK_DEV_SERVER_PORT}'
 
 # Dynamically set a boolean indicating if the webpack dev server is started.
 webpack_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
