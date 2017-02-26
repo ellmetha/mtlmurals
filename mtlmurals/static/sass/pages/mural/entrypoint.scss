@@ -89,7 +89,18 @@ body#id_mural_entrypoint{
         position: relative;
         float: left;
         width: 40%;
-        height: 100%;
+        height: calc(100% - 3.5rem);
+
+        #id_map_wrapper{
+          position: relative;
+          width: 100%;
+          height: 100%;
+
+          #map {
+            width: 100%;
+            height: 100%;
+          }
+        }
       }
     }
   }

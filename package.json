@@ -6,6 +6,7 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^3.0.0",
     "key-mirror": "^1.0.1",
+    "leaflet": "^1.0.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",

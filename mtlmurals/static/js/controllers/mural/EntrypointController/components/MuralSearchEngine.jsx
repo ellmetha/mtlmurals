@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 
+import smoothScrollTo from '../../../../core/animations/smoothScrollTo';
+
 import ResultListItem from './ResultListItem';
 import ResultListPagination from './ResultListPagination';
-
-import smoothScrollTo from '../../../../core/animations/smoothScrollTo';
+import ResultMap from './ResultMap';
 
 
 class MuralSearchEngine extends React.Component {
@@ -51,6 +52,7 @@ class MuralSearchEngine extends React.Component {
           </div>
         </div>
         <div id="id_map_search">
+          <ResultMap key="map" murals={murals} />
         </div>
       </div>
     );
