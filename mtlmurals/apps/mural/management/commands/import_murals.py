@@ -9,6 +9,7 @@ import requests
 from django.core.files import File
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from easy_thumbnails.files import get_thumbnailer
 from nameparser import HumanName
 
 from mtlmurals.common.text import replace
@@ -107,3 +108,6 @@ class Command(BaseCommand):
             artists.append(artist)
         mural.artists.clear()
         mural.artists.add(*artists)
+
+        # Ensures the thumbnails for murals are generated at import time.
+        get_thumbnailer(mural.image)['mural_search_engine_list_item']
