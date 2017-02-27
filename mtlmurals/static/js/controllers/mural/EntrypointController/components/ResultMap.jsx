@@ -12,7 +12,6 @@ class ResultMap extends React.Component {
     this.state = {
       iconDefault: null,
       map: null,
-      markers: null,
       tileLayer: null,
     };
     this._mapNode = null;
@@ -95,7 +94,6 @@ class ResultMap extends React.Component {
     });
 
     // Adds a new marker for each mural.
-    let newMarkers = [];
     let bounds = new L.LatLngBounds([]);
     for (var i = 0; i < murals.length; i++) {
       let mural = murals[i];
@@ -110,7 +108,6 @@ class ResultMap extends React.Component {
       let latlng = [mural.latitude, mural.longitude];
       bounds.extend(latlng);
       map.addLayer(marker);
-      newMarkers.push(marker);
     }
 
     // Ensures all the markers are visible.
