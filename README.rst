@@ -3,7 +3,7 @@ mtlmurals
 
 *A Django boilerplate project allowing you to discover the Montréal murals!*
 
-.. image:: https://raw.githubusercontent.com/ellmetha/mtlmurals/master/_static/preview.png
+.. image:: https://raw.githubusercontent.com/ellmetha/mtlmurals/master/.docs/preview.png
 
 The goal of this project is to showcase the use of the `Django <https://www.djangoproject.com/>`_
 web framework alongside the `ReactJS <https://facebook.github.io/react/>`_ library.
