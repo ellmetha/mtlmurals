@@ -5,6 +5,6 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     url(r'^$', RedirectView.as_view(pattern_name='mural:entrypoint', permanent=False), name='home'),
-    url(r'^api/', include('mtlmurals.public.api.urls', namespace='api')),
-    url(r'^murals/', include('mtlmurals.public.mural.urls', namespace='mural')),
+    url(r'^api/', include('mtlmurals.public.api.urls')),
+    url(r'^murals/', include('mtlmurals.public.mural.urls')),
 ]

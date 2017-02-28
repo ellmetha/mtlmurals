@@ -9,9 +9,10 @@ mural_urlpatterns = [
 ]
 
 api_urlpatterns = [
-    url(r'^murals/', include(mural_urlpatterns, namespace='mural')),
+    url(r'^murals/', include((mural_urlpatterns, 'mural'))),
 ]
 
+app_name = 'api'
 urlpatterns = [
-    url(r'^v1/', include(api_urlpatterns, namespace='v1')),
+    url(r'^v1/', include((api_urlpatterns, 'v1'))),
 ]
