@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib import admin
-from django.views.i18n import javascript_catalog
+from django.views.i18n import JavaScriptCatalog
 from django_js_reverse import views as js_reverse_views
 
 
@@ -11,7 +11,7 @@ js_info_dict = {
 }
 
 urlpatterns = [
-    url(r'^jsi18n/$', javascript_catalog, js_info_dict, name='javascript-catalog'),
+    url(r'^jsi18n/$', JavaScriptCatalog.as_view(), name='javascript_catalog'),
     url(r'^jsreverse/$', js_reverse_views.urls_js, name='js_reverse'),
 
     # Admin
