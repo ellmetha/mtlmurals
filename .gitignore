@@ -94,6 +94,7 @@ ENV/
 # Project's environment settings
 .env.json
 !/tests/.env.json
+mtlmurals_project/settings/settings_env.py
 
 # Public files
 public/media/*
