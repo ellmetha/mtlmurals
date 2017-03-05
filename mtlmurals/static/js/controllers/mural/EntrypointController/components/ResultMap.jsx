@@ -105,6 +105,19 @@ class ResultMap extends React.Component {
         'draggable': false,
         'icon': iconDefault,
       });
+
+      // Assemble the HTML for the marker's popup because Leaflet's bindPopup cannot use JSX.
+      let popupContent = `<div>
+          <a href="#" target="_blank">
+            <span class="item-image"><img src=${mural.image_url} alt="" /></span>
+            <span class="item-content">
+              <span class="item-title title is-4">${mural.title}</span>
+              <span class="item-year subtitle">${mural.year}</span>
+            </span>
+          </a>
+        </div>`;
+      marker.bindPopup(popupContent);
+
       let latlng = [mural.latitude, mural.longitude];
       bounds.extend(latlng);
       map.addLayer(marker);
