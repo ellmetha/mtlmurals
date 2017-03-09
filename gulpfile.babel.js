@@ -32,27 +32,26 @@ var js_dir = static_dir + 'js';
  * ~~~~~~~~~~~~~~~~~~~~~
  */
 
-let extractCSS = new ExtractTextPlugin('css/[name].css', { allChunks: true });
+let extractCSS = new ExtractTextPlugin({ filename: 'css/[name].css', allChunks: true });
 var webpackConfig = {
   output: {
     filename: 'js/[name].js',
   },
   resolve: {
-    modulesDirectories: ['node_modules', ],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json', 'scss'],
+    modules: ['node_modules', ],
+    extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.json', 'scss', ],
   },
   module: {
-    loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.scss$/i, loader: extractCSS.extract(['css','sass'], { publicPath: '../'}) },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.txt$/, loader: 'raw-loader' },
-      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, loader: 'url-loader?limit=10000' },
-      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, loader: 'file-loader' },
+    rules: [
+      { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
+      { test: /\.scss$/, use: ExtractTextPlugin.extract({ use: ['css-loader','sass-loader'], fallback: 'style-loader', publicPath: '../' }) },
+      { test: /\.txt$/, use: 'raw-loader' },
+      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
+      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
     ],
   },
   plugins: [
-    extractCSS,
+    new ExtractTextPlugin({ filename: 'css/[name].css', disable: false }),
     ...(PROD_ENV ? [
       new webpack.optimize.UglifyJsPlugin({
         compress: { warnings: false }
@@ -74,7 +73,7 @@ gulp.task('build-webpack-assets', function () {
         sass_dir + '/App.scss',
       ])
     .pipe(named())
-    .pipe(webpackStream(webpackConfig))
+    .pipe(webpackStream(webpackConfig, webpack))
     .pipe(gulp.dest(build_dir));
 });
 
@@ -95,7 +94,6 @@ gulp.task('build', ['build-webpack-assets', ]);
 gulp.task('webpack-dev-server', function(callback) {
   var devWebpackConfig = Object.create(webpackConfig);
   devWebpackConfig.devtool = 'eval';
-  devWebpackConfig.debug = true;
   devWebpackConfig.devServer = { hot: true };
   devWebpackConfig.entry = {
     App: [
@@ -105,13 +103,12 @@ gulp.task('webpack-dev-server', function(callback) {
     ],
   };
   devWebpackConfig.module = {
-    loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.scss$/i, loaders: ['style', 'css', 'sass', ] },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.txt$/, loader: 'raw-loader' },
-      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, loader: 'url-loader?limit=10000' },
-      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, loader: 'file-loader' },
+    rules: [
+      { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader', ] },
+      { test: /\.txt$/, use: 'raw-loader' },
+      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
+      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
     ],
   };
   devWebpackConfig.output = {
@@ -120,6 +117,7 @@ gulp.task('webpack-dev-server', function(callback) {
     filename: 'js/[name].js'
   };
   devWebpackConfig.plugins = [
+    new webpack.LoaderOptionsPlugin({ debug: true }),
     new webpack.HotModuleReplacementPlugin(),
   ];
 
