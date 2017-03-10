@@ -53,6 +53,9 @@ var webpackConfig = {
   plugins: [
     new ExtractTextPlugin({ filename: 'css/[name].css', disable: false }),
     ...(PROD_ENV ? [
+      new webpack.LoaderOptionsPlugin({
+        minimize: true
+      }),
       new webpack.optimize.UglifyJsPlugin({
         compress: { warnings: false }
       })
