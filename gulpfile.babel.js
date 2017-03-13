@@ -32,7 +32,6 @@ var js_dir = static_dir + 'js';
  * ~~~~~~~~~~~~~~~~~~~~~
  */
 
-let extractCSS = new ExtractTextPlugin({ filename: 'css/[name].css', allChunks: true });
 var webpackConfig = {
   output: {
     filename: 'js/[name].js',
