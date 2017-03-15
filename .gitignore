@@ -37,6 +37,7 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+coverage/
 .coverage
 .coverage.*
 .cache
@@ -93,7 +94,7 @@ ENV/
 
 # Project's environment settings
 .env.json
-!/tests/.env.json
+!/tests/py/.env.json
 mtlmurals_project/settings/settings_env.py
 
 # Public files
