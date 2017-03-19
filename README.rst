@@ -1,6 +1,12 @@
 mtlmurals
 #########
 
+.. image:: https://img.shields.io/travis/ellmetha/mtlmurals.svg?style=flat-square
+    :target: https://travis-ci.org/ellmetha/mtlmurals
+    :alt: Build status
+
+|
+
 *A Django boilerplate project allowing you to discover the Montréal murals!*
 
 .. image:: https://raw.githubusercontent.com/ellmetha/mtlmurals/master/.docs/preview.png
