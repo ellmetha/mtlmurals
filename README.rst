@@ -5,6 +5,10 @@ mtlmurals
     :target: https://travis-ci.org/ellmetha/mtlmurals
     :alt: Build status
 
+.. image:: https://img.shields.io/codecov/c/github/ellmetha/mtlmurals.svg?style=flat-square
+    :target: https://codecov.io/github/ellmetha/mtlmurals
+    :alt: Codecov status
+
 |
 
 *A Django boilerplate project allowing you to discover the Montréal murals!*
