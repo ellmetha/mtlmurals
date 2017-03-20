@@ -9,6 +9,6 @@ install:
   - npm install
 script:
   - make coverage
-  - codecov --flags py
+  - bash <(curl -s https://codecov.io/bash) -F py
   - npm test
-  - codecov --flags js
+  - bash <(curl -s https://codecov.io/bash) -F js
