@@ -47,6 +47,7 @@
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom" : ["mtlmurals/static/js/**/*.{js,jsx}"],
+    "coverageDirectory": "./coverage/",
     "moduleDirectories": ["node_modules", "bower_components", "mtlmurals/static/js"],
     "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   },
