@@ -39,11 +39,13 @@ class MuralSearchEngine extends React.Component {
 
   render() {
     let { murals, count, currentPage, pagesCount, } = this.props;
+    let countLabel = interpolate(ngettext('%s mural found.', '%s murals found.', 11), [count, ]);
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
           <div id="id_page_search_form"><FilterForm key='filterForm' onSubmit={this.onFilterFormSubmit.bind(this)} /></div>
           <div id="id_page_search_results" {...this.state.fetching ? {className: 'fetching'} : {}}>
+            <div className="results-count"><p>{countLabel}</p></div>
             <div id="id_page_search_results_fetching"></div>
             {murals.length > 0 &&
               // A list of murals can be displayed

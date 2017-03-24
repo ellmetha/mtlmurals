@@ -49,6 +49,11 @@ body#id_mural_entrypoint{
             @include transition(0.25s, ease-in-out);
           }
 
+          .results-count{
+            padding: 1.5rem;
+            padding-bottom: 0;
+          }
+
           .results-wrapper{
             margin: 0.75rem;
 
