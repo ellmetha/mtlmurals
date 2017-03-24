@@ -41,7 +41,7 @@ class ResultListPagination extends React.Component {
     ev.preventDefault();
 
     let pageNumber = ev.target.attributes.getNamedItem('data-page-number').value;
-    this.props.onPaginate(pageNumber=pageNumber);
+    this.props.onPaginate({pageNumber, pageNumber});
   }
 
   render() {

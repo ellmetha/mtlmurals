@@ -1,14 +1,23 @@
 import axios from 'axios';
+import { formValueSelector } from 'redux-form';
 
 import ActionTypes from '../constants/ActionTypes';
 
 
-export function fetchMurals(pageNumber = 1) {
+export function fetchMurals({pageNumber = 1, ...args} = {}) {
   return async (dispatch, getState) => {
+
     try {
       dispatch({ type: ActionTypes.MURALS_FETCH_REQUEST, pageNumber });
       let url = window.Urls['api:v1:mural:list']();
+
+      // Builds a querystring for the available filters.
+      let state = getState();
+      let selector = formValueSelector('filter');
       let parameters = '?page=' + pageNumber;
+      let filter_year = selector(state, 'year');
+      parameters += filter_year ? '&year=' + filter_year : '';
+
       const murals = (await axios.get(url + parameters)).data;
       dispatch({ type: ActionTypes.MURALS_FETCH_SUCCESS, murals });
     } catch (err) {

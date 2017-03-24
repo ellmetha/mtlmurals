@@ -7,4 +7,11 @@
 
 {% block content %}
 <div id="id_mural_search_engine"></div>
+<div id="id_filter_form_choices">
+  <div id="id_filter_form_choices_year">
+  {% for y in choices_year %}
+  <div data-choicevalue="{{ y }}" data-choicelabel="{{ y }}"></div>
+  {% endfor %}
+  </div>
+</div>
 {% endblock content %}

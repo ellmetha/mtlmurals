@@ -20,8 +20,14 @@ body#id_mural_entrypoint{
         height: 100%;
         background: $grey-lighter;
 
+        #id_page_search_form{
+          section{
+            padding: 1.5rem
+          }
+        }
+
         #id_page_search_results{
-          height: calc(100% - 2.8rem);
+          height: calc(100% - 7.6rem);
           overflow-x: scroll;
 
           &.fetching{

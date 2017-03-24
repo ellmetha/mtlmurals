@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 
 import smoothScrollTo from '../../../../core/animations/smoothScrollTo';
 
+import FilterForm from './FilterForm';
 import ResultListItem from './ResultListItem';
 import ResultListPagination from './ResultListPagination';
 import ResultMap from './ResultMap';
@@ -32,12 +33,16 @@ class MuralSearchEngine extends React.Component {
     onSubmitFetchMurals(...args);
   }
 
+  onFilterFormSubmit(values) {
+    this.onSubmit({filters: values})
+  }
+
   render() {
     let { murals, count, currentPage, pagesCount, } = this.props;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
-          <div id="id_page_search_form"></div>
+          <div id="id_page_search_form"><FilterForm key='filterForm' onSubmit={this.onFilterFormSubmit.bind(this)} /></div>
           <div id="id_page_search_results" {...this.state.fetching ? {className: 'fetching'} : {}}>
             <div id="id_page_search_results_fetching"></div>
             {murals.length > 0 &&
