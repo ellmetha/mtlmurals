@@ -24,9 +24,7 @@ urlpatterns = [
 if settings.DEBUG:
     # Add the Debug Toolbar’s URLs to the project’s URLconf
     import debug_toolbar
-    urlpatterns += [
-        url(r'^__debug__/', debug_toolbar.urls),
-    ]
+    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls)), ]
 
     # In DEBUG mode, serve media files through Django.
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
