@@ -1,19 +1,27 @@
-import React, { PropTypes } from 'react';
+/* eslint react/prop-types: [0, {}] */
+/* eslint react/no-multi-comp: [0, {}] */
+
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 
-const renderYearSelector = ({ input, meta: { touched, error } }) => {
-  let yearChoices = [...document.querySelectorAll('#id_filter_form_choices_year div')];
-  console.log(yearChoices);
-  return (
-    <select {...input}>
-      <option value="">All years...</option>
-      {yearChoices.map(y => <option value={y.dataset.choicevalue} key={y.dataset.choicevalue}>{y.dataset.choicelabel}</option>)}
-    </select>
-  );
-};
+class YearSelector extends React.Component {
+  render() {
+    const { input } = this.props;
+    const yearChoices = [...document.querySelectorAll('#id_filter_form_choices_year div')];
+    return (
+      <select {...input}>
+        <option value="">All years...</option>
+        {yearChoices.map(y =>
+          <option value={y.dataset.choicevalue} key={y.dataset.choicevalue}>{y.dataset.choicelabel}
+          </option>)}
+      </select>
+    );
+  }
+}
 
-class FilterForm extends React.Component {
+
+class _FilterForm extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -24,11 +32,14 @@ class FilterForm extends React.Component {
               <div className="field has-addons">
                 <p className="control">
                   <span className="select">
-                    <Field name="year" component={renderYearSelector}/>
+                    <Field name="year" component={YearSelector} />
                   </span>
                 </p>
                 <p className="control is-expanded">
-                  <Field className="input" name="q" component="input" type="text" placeholder="Search for murals..." />
+                  <Field
+                    className="input" name="q" component="input" type="text"
+                    placeholder="Search for murals..."
+                  />
                 </p>
                 <p className="control">
                   <button className="button is-primary" type="submit">Submit</button>
@@ -40,11 +51,11 @@ class FilterForm extends React.Component {
       </section>
     );
   }
-};
+}
 
 // Decorate the form component
-FilterForm = reduxForm({
+const FilterForm = reduxForm({
   form: 'filter',
-})(FilterForm);
+})(_FilterForm);
 
 export default FilterForm;

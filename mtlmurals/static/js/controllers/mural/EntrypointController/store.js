@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
@@ -17,4 +17,4 @@ export default function configureStore(initialState = {}) {
       ...((process.env.NODE_ENV !== 'production') ? [createLogger()] : []),
     ),
   );
-};
+}

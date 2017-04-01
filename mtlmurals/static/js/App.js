@@ -5,7 +5,7 @@ import DOMRouter from './core/DOMRouter';
 
 
 // Defines the router and initializes it!
-let router = new DOMRouter(controllers);
-(function() {
+const router = new DOMRouter(controllers);
+(function runApp() {
   router.init();
-})(window);
+}(window));

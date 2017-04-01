@@ -15,13 +15,13 @@ class MuralSearchEngineApp extends React.Component {
       <Provider store={store}>
         <MuralSearchEngineContainer />
       </Provider>
-    )
+    );
   }
 }
 
 
 export default {
-  init: function() {
+  init() {
     ReactDOM.render(<MuralSearchEngineApp />, document.getElementById('id_mural_search_engine'));
   },
 };

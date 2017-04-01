@@ -1,19 +1,22 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchMurals } from '../actions/murals';
+import fetchMurals from '../actions/murals';
 import MuralSearchEngine from '../components/MuralSearchEngine';
 
 
 class MuralSearchEngineContainer extends React.Component {
   static propTypes = {
-    params: PropTypes.object,
-    murals: PropTypes.array,
-    count: PropTypes.number,
-    currentPage: PropTypes.number,
-    pagesCount: PropTypes.number,
+    murals: PropTypes.array.isRequired,
+    count: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    pagesCount: PropTypes.number.isRequired,
     fetching: PropTypes.bool,
-    fetchMurals: PropTypes.func.isRequired
+    fetchMurals: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    fetching: false,
   };
 
   componentDidMount() {
@@ -21,12 +24,12 @@ class MuralSearchEngineContainer extends React.Component {
   }
 
   render() {
-    let { count, currentPage, fetching, fetchMurals, murals, pagesCount } = this.props;
+    const { count, currentPage, fetching, murals, pagesCount } = this.props;
     return (
-      <MuralSearchEngine key="murals"
-         murals={murals} count={count} currentPage={currentPage} pagesCount={pagesCount} fetching={fetching}
-         onSubmitFetchMurals={fetchMurals}
-         />
+      <MuralSearchEngine
+        key="murals" murals={murals} count={count} currentPage={currentPage} pagesCount={pagesCount}
+        fetching={fetching} onSubmitFetchMurals={this.props.fetchMurals}
+      />
     );
   }
 }
@@ -36,7 +39,7 @@ export default connect(
     murals: state.murals.list.map(id => state.murals.items[id]),
     count: state.murals.count,
     currentPage: state.murals.currentPage,
-    pagesCount: state.murals.pagesCount
+    pagesCount: state.murals.pagesCount,
   }),
-  {fetchMurals, }
+  { fetchMurals },
 )(MuralSearchEngineContainer);

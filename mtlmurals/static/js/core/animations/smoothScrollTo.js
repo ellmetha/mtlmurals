@@ -21,24 +21,24 @@ function smoothScrollTo(element, targetPosition = 0, duration = 500) {
   }
 
   // Sets start time and end time.
-  let startTime = Date.now();
-  let endTime = startTime + duration;
+  const startTime = Date.now();
+  const endTime = startTime + duration;
 
   // Computes the distance between the current number of pixels scrolled inside the considered
   // element and the target position.
-  let initialScrollTop = element.scrollTop;
-  let distance = targetPosition - initialScrollTop;
+  const initialScrollTop = element.scrollTop;
+  const distance = targetPosition - initialScrollTop;
 
   // Defines a "smoothstep" function that'll be used to threshold the values of the number of pixels
   // scrolled and keep a smooth transition. In the context of a "smooth scroll" function, "start",
   // "end" and "point" correspond to times (in ms).
-  let smoothStep = (start, end, point) => {
-      if(point <= start) { return 0; }
-      if(point >= end) { return 1; }
-      // Computes linear interpolation.
-      let x = (point - start) / (end - start);
-      // Evaluates the "smoothstep" polynomial: smoothstep = 3x^2 - 2x^3.
-      return x * x * (3 - 2 * x);
+  const smoothStep = (start, end, point) => {
+    if (point <= start) { return 0; }
+    if (point >= end) { return 1; }
+    // Computes linear interpolation.
+    const x = (point - start) / (end - start);
+    // Evaluates the "smoothstep" polynomial: smoothstep = 3x^2 - 2x^3.
+    return x * x * (3 - (2 * x));
   };
 
   return new Promise((resolve, reject) => {
@@ -47,20 +47,20 @@ function smoothScrollTo(element, targetPosition = 0, duration = 500) {
 
     // Defines a function that will handle the smooth scroll and update the scrollTop value of the
     // considered element.
-    let scrollStep = () => {
-      if(element.scrollTop != currentScrollTop) {
+    const scrollStep = () => {
+      if (element.scrollTop !== currentScrollTop) {
         reject('interrupted');
         return;
       }
 
       // Computes the new scrollTop value by ensuring a smooth transition.
-      let now = Date.now();
-      let point = smoothStep(startTime, endTime, now);
-      let stepScrollTop = Math.round(initialScrollTop + (distance * point));
+      const now = Date.now();
+      const point = smoothStep(startTime, endTime, now);
+      const stepScrollTop = Math.round(initialScrollTop + (distance * point));
       element.scrollTop = stepScrollTop;
 
       // Are we done?
-      if(now >= endTime) {
+      if (now >= endTime) {
         resolve();
         return;
       }
@@ -70,9 +70,9 @@ function smoothScrollTo(element, targetPosition = 0, duration = 500) {
       // interrupted.
       // Resolves the promise if we are still supposed to scroll according to the stepScrollTop
       // value but the scrollTop value won't move anymore.
-      if(element.scrollTop === currentScrollTop && element.scrollTop !== stepScrollTop) {
-          resolve();
-          return;
+      if (element.scrollTop === currentScrollTop && element.scrollTop !== stepScrollTop) {
+        resolve();
+        return;
       }
 
       // Update the current scrollTop value and schedule the next step.

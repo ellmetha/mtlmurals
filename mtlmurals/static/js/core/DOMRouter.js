@@ -9,7 +9,8 @@ class DOMRouter {
    * @param {String} action - The name of the action to execute.
    */
   execAction(controller, action) {
-    if (controller !== '' && this.controllers[controller] && typeof this.controllers[controller][action] == 'function') {
+    if (controller !== '' && this.controllers[controller] &&
+        typeof this.controllers[controller][action] === 'function') {
       this.controllers[controller][action]();
     }
   }
@@ -19,9 +20,9 @@ class DOMRouter {
    */
   init() {
     if (document.body) {
-      var body = document.body,
-      controller = body.getAttribute('data-controller'),
-      action = body.getAttribute('data-action');
+      const body = document.body;
+      const controller = body.getAttribute('data-controller');
+      const action = body.getAttribute('data-action');
 
       if (controller) {
         this.execAction(controller, 'init');
