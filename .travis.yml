@@ -8,7 +8,10 @@ install:
   - make install
   - npm install
 script:
+  - make lint
+  - make isort
   - make coverage
   - bash <(curl -s https://codecov.io/bash) -F py
+  - npm run lint
   - npm test
   - bash <(curl -s https://codecov.io/bash) -F js
