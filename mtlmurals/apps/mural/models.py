@@ -50,8 +50,10 @@ class Mural(models.Model):
     # organization which was financed to create murals. Fundings can come from a specific program.
     artists = models.ManyToManyField(Artist, verbose_name=_('Artists'))
     organization = models.ForeignKey(
-        Organization, blank=True, null=True, verbose_name=_('Organization'))
-    program = models.ForeignKey(Program, blank=True, null=True, verbose_name=_('Program'))
+        Organization, blank=True, null=True, on_delete=models.CASCADE,
+        verbose_name=_('Organization'))
+    program = models.ForeignKey(
+        Program, blank=True, null=True, on_delete=models.CASCADE, verbose_name=_('Program'))
 
     # The mural itself!
     image = models.ImageField(upload_to='murals/', blank=True, null=True, verbose_name=_('Image'))

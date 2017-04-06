@@ -1,8 +1,8 @@
-Django==1.10.6
+Django==1.11
 djangorestframework==3.5.3
-django-filter==1.0.1
+django-filter==1.0.2
 django-js-reverse==0.7.3
-easy-thumbnails==2.3
+easy-thumbnails==2.4.1
 nameparser==0.5.1
 Pillow==4.0.0
 requests==2.12.4
