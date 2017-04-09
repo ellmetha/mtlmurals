@@ -1,20 +1,26 @@
+/* eslint import/extensions: [0, {}] */
+/* eslint import/no-unresolved: [0, {}] */
 import DOMRouter from 'core/DOMRouter';
 
 
 describe('DOMRouter', () => {
   test('can run a specific action of a specific controller', () => {
-    let testController = { init: jest.fn(), };
-    let controllers = { test: testController, };
-    let router = new DOMRouter(controllers);
+    const testController = { init: jest.fn() };
+    const controllers = { test: testController };
+    const router = new DOMRouter(controllers);
     router.execAction('test', 'init');
     expect(testController.init).toHaveBeenCalled();
   });
 
   test('can trigger the right controller using data attributes on the <body> tag', () => {
-    let testController01 = { init: jest.fn(), doSomething: jest.fn(), doSomethingElse: jest.fn(), };
-    let testController02 = { init: jest.fn(), doSomethingElseAgain: jest.fn(), };
-    let controllers = { test01: testController01, test02: testController02, };
-    let router = new DOMRouter(controllers);
+    const testController01 = {
+      init: jest.fn(),
+      doSomething: jest.fn(),
+      doSomethingElse: jest.fn(),
+    };
+    const testController02 = { init: jest.fn(), doSomethingElseAgain: jest.fn() };
+    const controllers = { test01: testController01, test02: testController02 };
+    const router = new DOMRouter(controllers);
     // Set up our document body
     document.body.setAttribute('data-controller', 'test01');
     document.body.setAttribute('data-action', 'doSomething');
