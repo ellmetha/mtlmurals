@@ -107,5 +107,6 @@ public/*.txt
 
 # Assets and Node stuff
 node_modules/
+__snapshots__/
 /mtlmurals/static/build_dev/*
 !mtlmurals/static/build_dev/.gitkeep
