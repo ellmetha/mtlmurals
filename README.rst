@@ -24,7 +24,7 @@ web framework alongside the `ReactJS <https://facebook.github.io/react/>`_ libra
 Requirements
 ============
 
-Python 3.6+, Django 1.10.
+Python_ 3.6+, Pipenv_ 3.5+, Django_ 1.11.
 
 Installation
 ============
@@ -36,10 +36,9 @@ You can install the project locally using the following commands:
   $ git clone https://github.com/ellmetha/mtlmurals && cd mtlmurals
   $ export PYTHONPATH:$PWD:$PYTHONPATH
   $ python3.6 -m venv ./env && . ./env/bin/activate
-  $ pip install -r requirements-main.txt
-  $ pip install -r requirements-dev.txt
+  $ make install
   $ cp .env.json.example .env.json     # Initializes the environment settings
-  $ python manage.py migrate
+  $ pipenv run python manage.py migrate
 
 You can now download the `dataset containing the list of subventioned murals <http://donnees.ville.montreal.qc.ca/dataset/murales>`_
 (select the ``geojson`` version of the dataset). Put it somewhere on your system and then run the
@@ -47,13 +46,13 @@ following command in order to import the data into the Django application:
 
 .. code-block:: shell
 
-  $ python manage.py import_murals /path/to/murales.json
+  $ pipenv run python manage.py import_murals /path/to/murales.json
 
 *Alright!* Now all you have to do is to launch the development server using:
 
 .. code-block:: shell
 
-  $ python manage.py runserver
+  $ pipenv run python manage.py runserver
 
 Credits
 =======
@@ -65,3 +64,7 @@ License
 =======
 
 MIT. See ``LICENSE`` for more details.
+
+.. _Django: https://www.djangoproject.com
+.. _Pipenv: https://github.com/kennethreitz/pipenv
+.. _Python: https://www.python.org
