@@ -1,7 +1,7 @@
 .PHONY: install lint coverage travis docs
 
 install:
-	pip install pipenv
+	pip install coverage pipenv
 	pipenv lock
 	pipenv install --dev
 
