@@ -34,7 +34,7 @@ You can install the project locally using the following commands:
 .. code-block:: shell
 
   $ git clone https://github.com/ellmetha/mtlmurals && cd mtlmurals
-  $ make install
+  $ pipenv install --dev --python /usr/bin/python3.6
   $ cp .env.json.example .env.json     # Initializes the environment settings
   $ pipenv run python manage.py migrate
 
