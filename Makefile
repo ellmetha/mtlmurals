@@ -1,21 +1,18 @@
-.PHONY: install upgrade lint coverage travis docs
+.PHONY: install lint coverage travis docs
 
 install:
-	pip install -r requirements-dev.txt
-	pip install -r requirements-main.txt
-
-upgrade:
-	pip install -r requirements-dev.txt -U
-	pip install -r requirements-main.txt -U
+	pip install pipenv
+	pipenv lock
+	pipenv install --dev
 
 lint:
-	flake8
+	pipenv run flake8
 
 isort:
-	isort --check-only --recursive --diff mtlmurals tests
+	pipenv run isort --check-only --recursive --diff mtlmurals tests
 
 coverage:
-	py.test --cov-report term-missing --cov mtlmurals
+	pipenv run py.test --cov-report term-missing --cov mtlmurals
 
 spec:
-	py.test --spec -p no:sugar
+	pipenv run py.test --spec -p no:sugar

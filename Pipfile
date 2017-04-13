@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+[dev-packages]
+codecov = "*"
+django-debug-toolbar = "*"
+flake8 = "*"
+ipython = "*"
+isort = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
+pytest-pythonpath = "*"
+pytest-spec = "*"
+pytest-sugar = "*"
+selenium = "*"
+tox = "*"
+
+[packages]
+djangorestframework = "*"
+django-filter = "*"
+django-js-reverse = "*"
+easy-thumbnails = "*"
+nameparser = "*"
+requests = "*"
+Pillow = "*"
+Django = "<2.0"
