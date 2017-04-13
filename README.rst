@@ -15,8 +15,8 @@ mtlmurals
 
 .. image:: https://raw.githubusercontent.com/ellmetha/mtlmurals/master/.files/preview.png
 
-The goal of this project is to showcase the use of the `Django <https://www.djangoproject.com/>`_
-web framework alongside the `ReactJS <https://facebook.github.io/react/>`_ library.
+The goal of this project is to showcase the use of the Django_ web framework alongside the ReactJS_
+library.
 
 .. contents:: Table of Contents
     :local:
@@ -34,8 +34,6 @@ You can install the project locally using the following commands:
 .. code-block:: shell
 
   $ git clone https://github.com/ellmetha/mtlmurals && cd mtlmurals
-  $ export PYTHONPATH:$PWD:$PYTHONPATH
-  $ python3.6 -m venv ./env && . ./env/bin/activate
   $ make install
   $ cp .env.json.example .env.json     # Initializes the environment settings
   $ pipenv run python manage.py migrate
@@ -68,3 +66,4 @@ MIT. See ``LICENSE`` for more details.
 .. _Django: https://www.djangoproject.com
 .. _Pipenv: https://github.com/kennethreitz/pipenv
 .. _Python: https://www.python.org
+.. _ReactJS: https://facebook.github.io/react/
