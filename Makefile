@@ -1,4 +1,4 @@
-.PHONY: install lint coverage travis docs
+.PHONY: install lint isort coverage spec
 
 install:
 	pip install coverage pipenv
