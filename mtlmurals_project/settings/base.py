@@ -1,10 +1,11 @@
 """
-    Base Django settings for mtlmurals project
-    ==========================================
+    Base Django settings for the mtlmurals project
+    ==============================================
 
     For more information on this file, see https://docs.djangoproject.com/en/dev/topics/settings/
     For the full list of settings and their values, see
     https://docs.djangoproject.com/en/dev/ref/settings/
+
 """
 
 import json
