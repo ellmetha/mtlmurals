@@ -18,7 +18,7 @@ describe('<ResultListPagination />', () => {
         onPaginate={onPaginate}
       />
     );
-    expect(component.find('.pagination-previous').hasClass('is-disabled')).toBeTruthy();
+    expect(component.find('.pagination-previous').prop('disabled')).toBe('disabled');
   });
 
   test('disables the next button if the page is the last page', () => {
@@ -29,7 +29,7 @@ describe('<ResultListPagination />', () => {
         onPaginate={onPaginate}
       />
     );
-    expect(component.find('.pagination-next').hasClass('is-disabled')).toBeTruthy();
+    expect(component.find('.pagination-next').prop('disabled')).toBe('disabled');
   });
 
   test('can properly set the is-current class on the link to the current page', () => {
