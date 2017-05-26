@@ -12,6 +12,7 @@ class ResultMap extends React.Component {
     super(props);
     this.state = {
       iconDefault: null,
+      iconViewed: null,
       map: null,
       tileLayer: null,
     };
@@ -82,9 +83,10 @@ class ResultMap extends React.Component {
       },
     });
     const iconDefault = new DefaultIcon({ iconUrl: '/static/img/map_marker.svg' });
+    const iconViewed = new DefaultIcon({ iconUrl: '/static/img/map_marker_viewed.svg' });
 
     // Sets our state to include the icons, the map and the tile layer.
-    this.setState({ iconDefault, map, tileLayer });
+    this.setState({ iconDefault, iconViewed, map, tileLayer });
   }
 
   /**
@@ -96,7 +98,7 @@ class ResultMap extends React.Component {
     const { murals } = this.props;
     if (!murals.length) { return; }
 
-    const { iconDefault, map } = this.state;
+    const { iconDefault, iconViewed, map } = this.state;
 
     // Removes previously created markers.
     map.eachLayer((layer) => {
@@ -116,6 +118,7 @@ class ResultMap extends React.Component {
         mural: true,
         draggable: false,
         icon: iconDefault,
+        viewedIcon: iconViewed,
       });
 
       // Assemble the HTML for the marker's popup because Leaflet's bindPopup cannot use JSX.
@@ -129,6 +132,10 @@ class ResultMap extends React.Component {
           </a>
         </div>`;
       marker.bindPopup(popupContent);
+      marker.on('click', (ev) => {
+        // Updates the icon of the marker because it has been viewed.
+        ev.target.setIcon(ev.target.options.viewedIcon);
+      });
 
       const latlng = [mural.latitude, mural.longitude];
       bounds.extend(latlng);
