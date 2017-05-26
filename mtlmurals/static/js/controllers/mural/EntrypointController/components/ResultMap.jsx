@@ -21,6 +21,16 @@ class ResultMap extends React.Component {
     this.initMap(this._mapNode);
   }
 
+  shouldComponentUpdate(nextProps, _nextState) {
+    const oldMuralIds = this.props.murals.map(item => item.id);
+    const newMuralIds = nextProps.murals.map(item => item.id);
+    if (oldMuralIds.length === newMuralIds.length &&
+        oldMuralIds.every((v, i) => v === newMuralIds[i])) {
+      return false;
+    }
+    return true;
+  }
+
   componentDidUpdate() {
     this.updateMap();
   }
@@ -29,6 +39,7 @@ class ResultMap extends React.Component {
     // Destroys the Leaflet map object.
     this.state.map.remove();
   }
+
 
   /**
    * Initializes a Leaflet map that will be used to show a marker for each mural listed in the
