@@ -57,7 +57,7 @@ class ResultListPagination extends React.Component {
             className: 'pagination-previous',
             'data-page-number': previousPage,
             onClick: this.paginate.bind(this),
-          } : { className: 'pagination-previous is-disabled' }}
+          } : { className: 'pagination-previous', disabled: 'disabled' }}
         >
           Previous
         </a>
@@ -67,7 +67,7 @@ class ResultListPagination extends React.Component {
             className: 'pagination-next',
             'data-page-number': nextPage,
             onClick: this.paginate.bind(this),
-          } : { className: 'pagination-next is-disabled' }}
+          } : { className: 'pagination-next', disabled: 'disabled' }}
         >
           Next page
         </a>
