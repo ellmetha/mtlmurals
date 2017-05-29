@@ -2,6 +2,7 @@ import axios from 'axios';
 import { formValueSelector } from 'redux-form';
 
 import ActionTypes from '../constants/ActionTypes';
+import FormFilters from '../constants/FormFilters';
 
 
 export default function fetchMurals({ pageNumber = 1 } = {}) {
@@ -14,8 +15,11 @@ export default function fetchMurals({ pageNumber = 1 } = {}) {
       const state = getState();
       const selector = formValueSelector('filter');
       let parameters = `?page=${pageNumber}`;
-      const filterYear = selector(state, 'year');
-      parameters += filterYear ? `&year=${filterYear}` : '';
+      for (let i = 0; i < FormFilters.length; i += 1) {
+        const paramName = FormFilters[i];
+        const paramValue = selector(state, paramName);
+        parameters += paramValue ? `&${paramName}=${paramValue}` : '';
+      }
 
       const murals = (await axios.get(url + parameters)).data;
       dispatch({ type: ActionTypes.MURALS_FETCH_SUCCESS, murals });

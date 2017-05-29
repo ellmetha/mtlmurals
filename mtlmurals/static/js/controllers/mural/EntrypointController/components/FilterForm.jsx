@@ -30,7 +30,7 @@ const _FilterForm = ({ handleSubmit }) => (
             </p>
             <p className="control is-expanded">
               <Field
-                className="input" name="q" component="input" type="text"
+                className="input" name="search" component="input" type="text"
                 placeholder="Search for murals..."
               />
             </p>
