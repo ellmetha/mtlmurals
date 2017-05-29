@@ -42,7 +42,6 @@ class ResultMap extends React.Component {
     this.state.map.remove();
   }
 
-
   /**
    * Initializes a Leaflet map that will be used to show a marker for each mural listed in the
    * search results. It should be noted that this method doesn't handle markers creation because it

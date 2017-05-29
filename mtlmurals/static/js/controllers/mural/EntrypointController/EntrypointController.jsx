@@ -8,17 +8,11 @@ import configureStore from './store';
 
 const store = configureStore();
 
-
-class MuralSearchEngineApp extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <MuralSearchEngineContainer />
-      </Provider>
-    );
-  }
-}
-
+const MuralSearchEngineApp = () => (
+  <Provider store={store}>
+    <MuralSearchEngineContainer />
+  </Provider>
+);
 
 export default {
   init() {

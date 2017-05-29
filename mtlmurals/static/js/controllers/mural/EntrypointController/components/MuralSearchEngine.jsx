@@ -22,6 +22,8 @@ class MuralSearchEngine extends React.Component {
   constructor(props) {
     super(props);
     this.state = { fetching: false };
+    this.onFilterFormSubmit = this.onFilterFormSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentWillReceiveProps() {
@@ -46,7 +48,7 @@ class MuralSearchEngine extends React.Component {
       <div className="search-wrapper">
         <div id="id_page_search">
           <div id="id_page_search_form">
-            <FilterForm key="filterForm" onSubmit={this.onFilterFormSubmit.bind(this)} />
+            <FilterForm key="filterForm" onSubmit={this.onFilterFormSubmit} />
           </div>
           <div
             id="id_page_search_results" {...this.state.fetching ? { className: 'fetching' } : {}}
@@ -62,7 +64,7 @@ class MuralSearchEngine extends React.Component {
             <div id="id_page_search_pagination">
               <ResultListPagination
                 key="pagination" currentPage={currentPage} pagesCount={pagesCount}
-                onPaginate={this.onSubmit.bind(this)}
+                onPaginate={this.onSubmit}
               />
             </div>
           </div>
