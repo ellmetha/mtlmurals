@@ -40,7 +40,7 @@ const ResultListPagination = ({ currentPage, pagesCount, onPaginate }) => {
         {...previousPage ? {
           className: 'pagination-previous',
           'data-page-number': previousPage,
-          onClick: () => onPaginate({ pageNumber: previousPage }),
+          onClick: (ev) => { ev.preventDefault(); onPaginate({ pageNumber: previousPage }); },
         } : { className: 'pagination-previous', disabled: 'disabled' }}
       >
         Previous
@@ -50,7 +50,7 @@ const ResultListPagination = ({ currentPage, pagesCount, onPaginate }) => {
         {...nextPage ? {
           className: 'pagination-next',
           'data-page-number': nextPage,
-          onClick: () => onPaginate({ pageNumber: nextPage }),
+          onClick: (ev) => { ev.preventDefault(); onPaginate({ pageNumber: nextPage }); },
         } : { className: 'pagination-next', disabled: 'disabled' }}
       >
         Next page
@@ -64,7 +64,8 @@ const ResultListPagination = ({ currentPage, pagesCount, onPaginate }) => {
               }
               {pageNumber !== '...' &&
                 <a
-                  href="#{pageNumber}" onClick={() => onPaginate({ pageNumber })}
+                  href="#{pageNumber}"
+                  onClick={(ev) => { ev.preventDefault(); onPaginate({ pageNumber }); }}
                   data-page-number={pageNumber}
                   {...pageNumber === currentPage ? {
                     className: 'pagination-link is-current',

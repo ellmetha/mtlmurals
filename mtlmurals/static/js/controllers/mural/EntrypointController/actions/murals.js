@@ -1,8 +1,12 @@
 import axios from 'axios';
+import createBrowserHistory from 'history/createBrowserHistory';
 import { formValueSelector } from 'redux-form';
 
 import ActionTypes from '../constants/ActionTypes';
 import FormFilters from '../constants/FormFilters';
+
+
+const history = createBrowserHistory();
 
 
 export default function fetchMurals({ pageNumber = 1 } = {}) {
@@ -23,6 +27,10 @@ export default function fetchMurals({ pageNumber = 1 } = {}) {
 
       const murals = (await axios.get(url + parameters)).data;
       dispatch({ type: ActionTypes.MURALS_FETCH_SUCCESS, murals });
+
+      // Pushes the querystring to the browser history.
+      const location = history.location;
+      history.push({ ...location, search: parameters });
     } catch (err) {
       const error = Error('Unknown error occured :-(. Please, try again later.');
       dispatch({ type: ActionTypes.MURALS_FETCH_FAILURE, error });
