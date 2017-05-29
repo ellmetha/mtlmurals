@@ -20,7 +20,7 @@ class MuralSerializer(serializers.ModelSerializer):
 
     def get_title(self, obj):
         title = obj.address[0].upper() + obj.address[1:]
-        return Truncator(title).chars(50)
+        return Truncator(title).chars(40)
 
     def get_image_url(self, obj):
         return get_thumbnailer(obj.image)['mural_search_engine_list_item'].url
