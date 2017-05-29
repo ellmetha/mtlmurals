@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Third-party apps
+    'django_filters',
     'django_js_reverse',
     'easy_thumbnails',
     'rest_framework',
