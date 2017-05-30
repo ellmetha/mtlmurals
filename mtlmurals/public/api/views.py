@@ -1,4 +1,5 @@
-from rest_framework.filters import DjangoFilterBackend, SearchFilter
+from rest_framework.filters import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
 from rest_framework.generics import ListAPIView
 
 from mtlmurals.apps.mural.models import Mural
