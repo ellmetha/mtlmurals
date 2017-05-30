@@ -1,12 +1,9 @@
 import axios from 'axios';
-import createBrowserHistory from 'history/createBrowserHistory';
 import { formValueSelector } from 'redux-form';
 
 import ActionTypes from '../constants/ActionTypes';
 import FormFilters from '../constants/FormFilters';
-
-
-const history = createBrowserHistory();
+import history from '../history';
 
 
 export default function fetchMurals({ pageNumber = 1 } = {}) {

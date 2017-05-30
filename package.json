@@ -10,6 +10,7 @@
     "key-mirror": "^1.0.1",
     "leaflet": "^1.0.3",
     "prop-types": "^15.5.10",
+    "query-string": "^4.3.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",

@@ -1,9 +1,11 @@
+import queryString from 'query-string';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
 import fetchMurals from '../actions/murals';
 import MuralSearchEngine from '../components/MuralSearchEngine';
+import history from '../history';
 
 
 class MuralSearchEngineContainer extends React.Component {
@@ -20,8 +22,14 @@ class MuralSearchEngineContainer extends React.Component {
     fetching: false,
   };
 
+  constructor(props) {
+    super(props);
+    this.initialParameters = queryString.parse(history.location.search);
+  }
+
   componentDidMount() {
-    this.props.fetchMurals();
+    const pageNumber = this.initialParameters.page || 1;
+    this.props.fetchMurals({ pageNumber });
   }
 
   render() {
@@ -30,6 +38,7 @@ class MuralSearchEngineContainer extends React.Component {
       <MuralSearchEngine
         key="murals" murals={murals} count={count} currentPage={currentPage} pagesCount={pagesCount}
         fetching={fetching} onSubmitFetchMurals={this.props.fetchMurals}
+        initialFilters={this.initialParameters}
       />
     );
   }
