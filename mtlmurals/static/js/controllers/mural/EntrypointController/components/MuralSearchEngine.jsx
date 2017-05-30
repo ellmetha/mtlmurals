@@ -23,7 +23,6 @@ class MuralSearchEngine extends React.Component {
   constructor(props) {
     super(props);
     this.state = { fetching: false };
-    this.onFilterFormSubmit = this.onFilterFormSubmit.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -38,10 +37,6 @@ class MuralSearchEngine extends React.Component {
     onSubmitFetchMurals(...args);
   }
 
-  onFilterFormSubmit(values) {
-    this.onSubmit({ filters: values });
-  }
-
   render() {
     const { murals, count, currentPage, pagesCount, initialFilters } = this.props;
     const countLabel = interpolate(ngettext('%s mural found.', '%s murals found.', 11), [count]);
@@ -51,7 +46,7 @@ class MuralSearchEngine extends React.Component {
           <div id="id_page_search_form">
             <FilterForm
               key="filterForm" initialValues={initialFilters}
-              onSubmit={this.onFilterFormSubmit}
+              onSubmit={this.onSubmit}
             />
           </div>
           <div
