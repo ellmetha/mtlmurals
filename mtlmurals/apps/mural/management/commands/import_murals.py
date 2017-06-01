@@ -19,6 +19,7 @@ from ...models import Mural
 from ...models import Organization
 from ...models import Program
 
+
 logger = logging.getLogger(__file__)
 
 
