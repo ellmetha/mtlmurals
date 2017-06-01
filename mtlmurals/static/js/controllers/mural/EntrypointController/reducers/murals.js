@@ -30,6 +30,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.error,
+        fetching: false,
       };
     default:
       return state;
