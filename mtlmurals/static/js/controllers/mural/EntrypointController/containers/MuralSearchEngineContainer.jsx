@@ -14,12 +14,8 @@ class MuralSearchEngineContainer extends React.Component {
     count: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
     pagesCount: PropTypes.number.isRequired,
-    fetching: PropTypes.bool,
+    fetching: PropTypes.bool.isRequired,
     fetchMurals: PropTypes.func.isRequired,
-  };
-
-  static defaultProps = {
-    fetching: false,
   };
 
   constructor(props) {
@@ -50,6 +46,7 @@ export default connect(
     count: state.murals.count,
     currentPage: state.murals.currentPage,
     pagesCount: state.murals.pagesCount,
+    fetching: state.murals.fetching,
   }),
   { fetchMurals },
 )(MuralSearchEngineContainer);
