@@ -9,7 +9,7 @@ import history from '../history';
 export default function fetchMurals({ pageNumber = 1 } = {}) {
   return async (dispatch, getState) => {
     try {
-      dispatch({ type: ActionTypes.MURALS_FETCH_REQUEST, pageNumber });
+      dispatch({ type: ActionTypes.MURALS_FETCH_REQUEST });
       const url = window.Urls['api:v1:mural:list']();
 
       // Builds a querystring for the available filters.
