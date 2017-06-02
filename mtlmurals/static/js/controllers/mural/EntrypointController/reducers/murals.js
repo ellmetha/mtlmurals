@@ -17,12 +17,12 @@ export default (state = initialState, action) => {
       return { ...state, fetching: true };
     }
     case ActionTypes.MURALS_FETCH_SUCCESS: {
-      const list = action.murals.results.map(item => item.id);
+      const list = action.murals.items.map(item => item.id);
       const items = {};
-      const currentPage = parseInt(action.murals.pagination.current_page, 10);
-      const pagesCount = parseInt(action.murals.pagination.num_pages, 10);
-      const count = parseInt(action.murals.pagination.count, 10);
-      action.murals.results.forEach((mural) => { items[mural.id] = mural; });
+      const currentPage = parseInt(action.murals.page, 10);
+      const pagesCount = parseInt(action.murals.pages, 10);
+      const count = parseInt(action.murals.total, 10);
+      action.murals.items.forEach((mural) => { items[mural.id] = mural; });
       return { ...state, list, items, currentPage, pagesCount, count, fetching: false };
     }
     case ActionTypes.MURALS_FETCH_FAILURE:

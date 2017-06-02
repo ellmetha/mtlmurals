@@ -1,3 +1,5 @@
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -91,6 +93,7 @@ ENV/
 
 # Databases
 *.db
+*.db-journal
 
 # Project's environment settings
 .env.json
@@ -105,8 +108,12 @@ public/static/*
 public/*.txt
 !public/robots.txt
 
+# Media files (only used in development)
+/media/
+
 # Assets and Node stuff
 node_modules/
 __snapshots__/
 /mtlmurals/static/build_dev/*
 !mtlmurals/static/build_dev/.gitkeep
+!mtlmurals/static/build_dev/img

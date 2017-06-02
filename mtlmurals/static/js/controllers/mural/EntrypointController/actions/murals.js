@@ -10,7 +10,7 @@ export default function fetchMurals({ pageNumber = 1 } = {}) {
   return async (dispatch, getState) => {
     try {
       dispatch({ type: ActionTypes.MURALS_FETCH_REQUEST });
-      const url = window.Urls['api:v1:mural:list']();
+      const url = document.querySelectorAll('#id_mural_api_url')[0].dataset.url;
 
       // Builds a querystring for the available filters.
       const state = getState();

@@ -1,4 +1,3 @@
-/* global interpolate, ngettext */
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -51,7 +50,8 @@ class MuralSearchEngine extends React.Component {
 
   render() {
     const { murals, count, currentPage, pagesCount, initialFilters } = this.props;
-    const countLabel = interpolate(ngettext('%s mural found.', '%s murals found.', 11), [count]);
+    // TODO: use react-intl here.
+    const countLabel = (count > 0) ? `${count} murals found.` : `${count} mural found.`;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">

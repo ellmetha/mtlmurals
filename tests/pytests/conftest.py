@@ -5,16 +5,28 @@ import shutil
 
 import pytest
 
-from . import settings
+from mtlmurals import create_app
+
+
+@pytest.yield_fixture(scope='session')
+def flask_app():
+    """ Yields an instance of the Flask application. """
+    app = create_app('testing')
+    from mtlmurals.extensions import db
+    with app.app_context():
+        db.create_all()
+        yield app
+        db.drop_all()
 
 
 @pytest.yield_fixture(scope='session', autouse=True)
-def empty_media():
-    """ Removes the files in MEDIA_ROOT that could have been created during tests execution. """
+def empty_media(flask_app):
+    """ Removes the files in upload folders that could have been created during tests execution. """
     yield
-    if os.path.exists(settings.MEDIA_ROOT):
-        for candidate in os.listdir(settings.MEDIA_ROOT):
-            path = os.path.join(settings.MEDIA_ROOT, candidate)
+    uploads_dest = flask_app.config['UPLOADS_DEFAULT_DEST']
+    if os.path.exists(uploads_dest):
+        for candidate in os.listdir(uploads_dest):
+            path = os.path.join(uploads_dest, candidate)
             try:
                 shutil.rmtree(path)
             except OSError:
