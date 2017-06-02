@@ -19,7 +19,7 @@
             "version": "==3.0.3"
         },
         "django": {
-            "version": "==1.11.1"
+            "version": "==1.11.2"
         },
         "django-filter": {
             "version": "==1.0.4"
@@ -72,7 +72,7 @@
             "version": "==4.0.11"
         },
         "django": {
-            "version": "==1.11.1"
+            "version": "==1.11.2"
         },
         "django-debug-toolbar": {
             "version": "==1.8"
@@ -90,7 +90,7 @@
             "version": "==0.2.0"
         },
         "isort": {
-            "version": "==4.2.8"
+            "version": "==4.2.12"
         },
         "jedi": {
             "version": "==0.10.2"
