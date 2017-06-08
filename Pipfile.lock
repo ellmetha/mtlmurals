@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "704c4b925ba4285f63015505d4628becfc2c0a9d530682ff91931bd279b51aba"
+            "sha256": "898edb874c538d4c6e7480a9ad53652f9df9cea9a4aa4780f2b83b6166a2ab4b"
         },
         "requires": {},
         "sources": [
@@ -30,9 +30,6 @@
         "click": {
             "version": "==6.7"
         },
-        "decorator": {
-            "version": "==4.0.11"
-        },
         "flask": {
             "version": "==0.12.2"
         },
@@ -47,9 +44,6 @@
         },
         "flask-script": {
             "version": "==2.0.5"
-        },
-        "flask-shell-ipython": {
-            "version": "==0.2.2"
         },
         "flask-sqlalchemy": {
             "version": "==2.2"
@@ -66,17 +60,8 @@
         "idna": {
             "version": "==2.5"
         },
-        "ipython": {
-            "version": "==6.1.0"
-        },
-        "ipython-genutils": {
-            "version": "==0.2.0"
-        },
         "itsdangerous": {
             "version": "==0.24"
-        },
-        "jedi": {
-            "version": "==0.10.2"
         },
         "jinja2": {
             "version": "==2.9.6"
@@ -96,32 +81,8 @@
         "olefile": {
             "version": "==0.44"
         },
-        "pexpect": {
-            "version": "==4.2.1"
-        },
-        "pickleshare": {
-            "version": "==0.7.4"
-        },
         "pillow": {
             "version": "==4.1.1"
-        },
-        "prompt-toolkit": {
-            "version": "==1.0.14"
-        },
-        "ptyprocess": {
-            "version": "==0.5.1"
-        },
-        "py": {
-            "version": "==1.4.34"
-        },
-        "pygments": {
-            "version": "==2.2.0"
-        },
-        "pytest": {
-            "version": "==3.1.1"
-        },
-        "pytest-env": {
-            "version": "==0.6.1"
         },
         "python-dateutil": {
             "version": "==2.6.0"
@@ -135,12 +96,6 @@
         "requests": {
             "version": "==2.17.3"
         },
-        "setuptools": {
-            "version": "==36.0.1"
-        },
-        "simplegeneric": {
-            "version": "==0.8.1"
-        },
         "six": {
             "version": "==1.10.0"
         },
@@ -150,14 +105,8 @@
         "sqlalchemy-utils": {
             "version": "==0.32.14"
         },
-        "traitlets": {
-            "version": "==4.3.2"
-        },
         "urllib3": {
             "version": "==1.21.1"
-        },
-        "wcwidth": {
-            "version": "==0.1.7"
         },
         "werkzeug": {
             "version": "==0.12.2"
@@ -169,6 +118,9 @@
         },
         "chardet": {
             "version": "==3.0.4"
+        },
+        "click": {
+            "version": "==6.7"
         },
         "codecov": {
             "version": "==2.0.9"
@@ -182,6 +134,12 @@
         "flake8": {
             "version": "==3.3.0"
         },
+        "flask": {
+            "version": "==0.12.2"
+        },
+        "flask-shell-ipython": {
+            "version": "==0.2.2"
+        },
         "idna": {
             "version": "==2.5"
         },
@@ -194,8 +152,17 @@
         "isort": {
             "version": "==4.2.15"
         },
+        "itsdangerous": {
+            "version": "==0.24"
+        },
         "jedi": {
             "version": "==0.10.2"
+        },
+        "jinja2": {
+            "version": "==2.9.6"
+        },
+        "markupsafe": {
+            "version": "==1.0"
         },
         "mccabe": {
             "version": "==0.6.1"
@@ -239,6 +206,9 @@
         "pytest-cov": {
             "version": "==2.5.1"
         },
+        "pytest-env": {
+            "version": "==0.6.1"
+        },
         "pytest-pythonpath": {
             "version": "==0.7.1"
         },
@@ -280,6 +250,9 @@
         },
         "wcwidth": {
             "version": "==0.1.7"
+        },
+        "werkzeug": {
+            "version": "==0.12.2"
         }
     }
 }
