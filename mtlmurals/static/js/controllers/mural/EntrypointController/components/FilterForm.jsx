@@ -5,19 +5,23 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 
-const YearSelector = ({ input }) => {
+export const YearSelector = ({ input }) => {
   const yearChoices = [...document.querySelectorAll('#id_filter_form_choices_year div')];
   return (
     <select {...input}>
       <option value="">All years...</option>
       {yearChoices.map(y =>
-        (<option value={y.dataset.choicevalue} key={y.dataset.choicevalue}>{y.dataset.choicelabel}
+        (<option
+          value={y.getAttribute('data-choicevalue')}
+          key={y.getAttribute('data-choicevalue')}
+        >
+          {y.getAttribute('data-choicelabel')}
         </option>))}
     </select>
   );
 };
 
-const _FilterForm = ({ handleSubmit }) => (
+export const BaseFilterForm = ({ handleSubmit }) => (
   <section className="section">
     <form onSubmit={handleSubmit}>
       <div className="columns">
@@ -47,6 +51,6 @@ const _FilterForm = ({ handleSubmit }) => (
 // Decorate the form component
 const FilterForm = reduxForm({
   form: 'filter',
-})(_FilterForm);
+})(BaseFilterForm);
 
 export default FilterForm;

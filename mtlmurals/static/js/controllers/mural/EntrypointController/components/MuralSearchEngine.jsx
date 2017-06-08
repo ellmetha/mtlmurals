@@ -30,7 +30,7 @@ class MuralSearchEngine extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // The submitting state attributed is set to true when the filters are submitted or when the
+    // The "submitting" state attributed is set to true when the filters are submitted or when the
     // results are paginated. The global state associated with the app also maintains a 'fetching'
     // property whenever murals are requested to the server. The value of this property is used to
     // mutate the state and its 'submitting' attribute. This is necessary because the value of the
