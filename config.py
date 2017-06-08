@@ -109,7 +109,6 @@ class TestingConfig(Config):
     """ Defines configuration values for testing environments. """
 
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'  # In-memory SQLite database for testing
 
     UPLOADS_DEFAULT_DEST = str(PROJECT_PATH / 'tests' / '_testdata' / 'media')
 
