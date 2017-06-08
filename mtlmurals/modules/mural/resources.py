@@ -71,6 +71,7 @@ class MuralList(Resource):
         filter_search = args.get('search', None)
         filter_year = args.get('year', None)
         if filter_search is not None:
+            filter_search = '%{}%'.format(filter_search)
             murals = murals.filter(
                 or_(Mural.address.ilike(filter_search), Mural.address_2.ilike(filter_search)))
         if filter_year is not None:

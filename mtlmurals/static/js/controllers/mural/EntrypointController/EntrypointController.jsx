@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 
 import MuralSearchEngineContainer from './containers/MuralSearchEngineContainer';
@@ -10,7 +11,7 @@ const store = configureStore();
 
 const MuralSearchEngineApp = () => (
   <Provider store={store}>
-    <MuralSearchEngineContainer />
+    <IntlProvider locale="en"><MuralSearchEngineContainer /></IntlProvider>
   </Provider>
 );
 

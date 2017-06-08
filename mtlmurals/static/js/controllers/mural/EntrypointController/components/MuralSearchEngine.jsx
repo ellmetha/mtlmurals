@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import smoothScrollTo from '../../../../core/animations/smoothScrollTo';
 
@@ -50,8 +51,6 @@ class MuralSearchEngine extends React.Component {
 
   render() {
     const { murals, count, currentPage, pagesCount, initialFilters } = this.props;
-    // TODO: use react-intl here.
-    const countLabel = (count > 0) ? `${count} murals found.` : `${count} mural found.`;
     return (
       <div className="search-wrapper">
         <div id="id_page_search">
@@ -65,7 +64,16 @@ class MuralSearchEngine extends React.Component {
             id="id_page_search_results"
             {...this.state.submitting ? { className: 'fetching' } : {}}
           >
-            <div className="results-count"><p>{countLabel}</p></div>
+            <div className="results-count">
+              <p>
+                <FormattedMessage
+                  id="resultsCount"
+                  defaultMessage={
+                    '{count, number} {count, plural, one {mural found} other {murals found}}'}
+                  values={{ count }}
+                />
+              </p>
+            </div>
             <div id="id_page_search_results_fetching" />
             {murals.length > 0 &&
               // A list of murals can be displayed
