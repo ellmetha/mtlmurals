@@ -7,18 +7,11 @@
 """
 
 from flask import Flask
-from werkzeug.routing import BaseConverter
 
 from config import config
 
 from . import extensions
 from . import modules
-
-
-class RegexConverter(BaseConverter):
-    def __init__(self, url_map, *items):
-        super(RegexConverter, self).__init__(url_map)
-        self.regex = items[0]
 
 
 def create_app(config_name):
@@ -34,9 +27,6 @@ def create_app(config_name):
     if not app.debug and not app.testing and not app.config['SSL_DISABLE']:
         from flask.ext.sslify import SSLify
         SSLify(app)
-
-    # Set up converters.
-    app.url_map.converters['regex'] = RegexConverter
 
     # Initializes Flask extensions.
     extensions.init_app(app)
