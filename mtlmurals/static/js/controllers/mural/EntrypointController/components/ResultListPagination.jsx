@@ -27,7 +27,6 @@ const ResultListPagination = ({ currentPage, pagesCount, onPaginate }) => {
       }
     }
 
-    console.log(items);
     return items;
   };
 

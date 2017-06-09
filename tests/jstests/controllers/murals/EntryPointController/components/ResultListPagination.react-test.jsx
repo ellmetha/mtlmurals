@@ -56,6 +56,16 @@ describe('<ResultListPagination />', () => {
     expect(component1.find('ul.pagination-list li').at(5).children()
            .hasClass('pagination-ellipsis')).toBeTruthy();
 
+    const component2 = shallow(
+      <ResultListPagination
+        key="pagination" currentPage={10} pagesCount={12}
+        onPaginate={onPaginate}
+      />
+    );
+    expect(component2.find('ul.pagination-list li')).toHaveLength(7);
+    expect(component2.find('ul.pagination-list li').at(1).children()
+          .hasClass('pagination-ellipsis')).toBeTruthy();
+
     const component3 = shallow(
       <ResultListPagination
         key="pagination" currentPage={6} pagesCount={12}
@@ -69,7 +79,28 @@ describe('<ResultListPagination />', () => {
            .hasClass('pagination-ellipsis')).toBeTruthy();
   });
 
-  test('can trigger pagination', () => {
+  test('can trigger pagination from the "previous" button', () => {
+    const onPaginate = jest.fn();
+    const component = shallow(
+      <ResultListPagination
+        key="pagination" currentPage={3} pagesCount={12}
+        onPaginate={onPaginate}
+      />
+    );
+    const ret = { value: 4 };
+    const mockedEvent = {
+      preventDefault: jest.fn(),
+      target: {
+        attributes: {
+          getNamedItem: jest.fn(() => ret),
+        },
+      },
+    };
+    component.find('.pagination-previous').simulate('click', mockedEvent);
+    expect(onPaginate).toHaveBeenCalled();
+  });
+
+  test('can trigger pagination from the "next" button', () => {
     const onPaginate = jest.fn();
     const component = shallow(
       <ResultListPagination
@@ -87,6 +118,27 @@ describe('<ResultListPagination />', () => {
       },
     };
     component.find('.pagination-next').simulate('click', mockedEvent);
+    expect(onPaginate).toHaveBeenCalled();
+  });
+
+  test('can trigger pagination from a page button', () => {
+    const onPaginate = jest.fn();
+    const component = shallow(
+      <ResultListPagination
+        key="pagination" currentPage={3} pagesCount={12}
+        onPaginate={onPaginate}
+      />
+    );
+    const ret = { value: 4 };
+    const mockedEvent = {
+      preventDefault: jest.fn(),
+      target: {
+        attributes: {
+          getNamedItem: jest.fn(() => ret),
+        },
+      },
+    };
+    component.find('ul.pagination-list li a').at(0).simulate('click', mockedEvent);
     expect(onPaginate).toHaveBeenCalled();
   });
 });
