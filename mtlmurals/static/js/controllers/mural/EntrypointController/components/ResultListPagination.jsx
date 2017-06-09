@@ -14,19 +14,20 @@ const ResultListPagination = ({ currentPage, pagesCount, onPaginate }) => {
 
     for (let i = 1; i < pagesCount + 1; i += 1) {
       if (i === 1) {
-        items.push(i);
-        if (currentPage > 4 && pagesCount > 6) { items.push('...'); }
+        items.push([i, i]);
+        if (currentPage > 4 && pagesCount > 6) { items.push(['...', i]); }
       } else if (i === pagesCount) {
-        if (currentPage < pagesCount - 3 && pagesCount > 6) { items.push('...'); }
-        items.push(i);
+        if (currentPage < pagesCount - 3 && pagesCount > 6) { items.push(['...', i]); }
+        items.push([i, i]);
       } else if (
           (currentPage < 3 && i <= 5) ||
           (currentPage > pagesCount - 2 && i >= pagesCount - 4) ||
           (i >= previousPage - 1 && i <= nextPage + 1)) {
-        items.push(i);
+        items.push([i, i]);
       }
     }
 
+    console.log(items);
     return items;
   };
 
@@ -57,21 +58,23 @@ const ResultListPagination = ({ currentPage, pagesCount, onPaginate }) => {
       </a>
       {paginationItems.length > 0 &&
         <ul className="pagination-list">
-          {paginationItems.map(pageNumber => (
-            <li key={pageNumber}>
-              {pageNumber === '...' &&
+          {paginationItems.map(pageArray => (
+            <li key={`${pageArray[0]}${pageArray[1]}`}>
+              {pageArray[0] === '...' &&
                 <span className="pagination-ellipsis">&hellip;</span>
               }
-              {pageNumber !== '...' &&
+              {pageArray[0] !== '...' &&
                 <a
-                  href="#{pageNumber}"
-                  onClick={(ev) => { ev.preventDefault(); onPaginate({ pageNumber }); }}
-                  data-page-number={pageNumber}
-                  {...pageNumber === currentPage ? {
+                  href="#{pageNumber[0]}"
+                  onClick={(ev) => {
+                    ev.preventDefault(); onPaginate({ pageNumber: pageArray[0] });
+                  }}
+                  data-page-number={pageArray[0]}
+                  {...pageArray[0] === currentPage ? {
                     className: 'pagination-link is-current',
                   } : { className: 'pagination-link' }}
                 >
-                  {pageNumber}
+                  {pageArray[0]}
                 </a>
               }
             </li>))}
