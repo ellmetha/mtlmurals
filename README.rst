@@ -11,7 +11,7 @@ mtlmurals
 
 |
 
-*A Flask boilerplate project allowing you to discover the Montréal murals!*
+*A Flask + ReactJS application allowing you to discover the Montréal murals!*
 
 .. image:: https://raw.githubusercontent.com/ellmetha/mtlmurals/master/.files/preview.png
 
