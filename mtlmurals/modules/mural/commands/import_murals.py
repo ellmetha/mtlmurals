@@ -66,7 +66,7 @@ def import_murals(infile):
 def _import_mural(feature):
     """ Imports a single mural. """
     properties_dict = feature.get('properties')
-    import_id = properties_dict['id']
+    import_id = str(properties_dict['id'])
 
     mural = Mural.query.filter(Mural.import_id == import_id).first()
     if mural is None:
@@ -105,7 +105,7 @@ def _import_mural(feature):
 
     # Creates or updates the related program.
     raw_program = properties_dict.get('programme_entente')
-    program, dummy = Program.get_or_create(name=raw_program) \
+    program, dummy = Program.get_or_create(name=raw_program,) \
         if raw_program else (None, False)
     mural.program_id = program.id
 
@@ -124,4 +124,3 @@ def _import_mural(feature):
 
     # Ensures the thumbnails for murals are generated at import time.
     thumb.get_thumbnail(os.path.join(mural_images.name, mural.image), '550x360')
-    # resize(mural_images.path(mural.image), '550x360', fill=True, upscale=False)
