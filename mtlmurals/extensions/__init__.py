@@ -8,6 +8,7 @@
 """
 
 from flask_babel import Babel
+from flask_debugtoolbar import DebugToolbarExtension
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_thumbnails import Thumbnail
@@ -19,6 +20,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 babel = Babel()
 thumb = Thumbnail()
+debug_toolbar = DebugToolbarExtension()
 
 
 def init_app(app):
@@ -26,3 +28,8 @@ def init_app(app):
     for extension in (db, api, babel, thumb, ):
         extension.init_app(app)
     migrate.init_app(app, db)
+
+    # Initializes development extensions if applicable
+    if app.debug:
+        for extension in (debug_toolbar, ):
+            extension.init_app(app)
